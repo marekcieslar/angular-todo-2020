@@ -11,11 +11,15 @@ export class TodoService {
   constructor() {}
 
   addTodo(todo: TodoAttrs): void {
+    console.log('TodoService - add');
+
     const t = new Todo(todo);
     this.todos$.next([...this.todos$.getValue(), t]);
   }
 
   deleteTodo(todo: Todo): void {
+    console.log('TodoService - delete');
+
     const todos = this.todos$.getValue();
     const index = todos.findIndex((t) => t.id === todo.id);
     todos.splice(index, 1);
@@ -23,6 +27,8 @@ export class TodoService {
   }
 
   editTodo(todo: Todo): void {
+    console.log('TodoService - edit');
+
     const todos = this.todos$.getValue();
     const index = todos.findIndex((t) => t.id === todo.id);
     todos[index] = todo;

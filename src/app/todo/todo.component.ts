@@ -14,6 +14,8 @@ export class TodoComponent implements OnInit {
   constructor(private readonly todoService: TodoService) {}
 
   ngOnInit(): void {
+    console.log('TodoComponent - on init');
+
     this.todoService.addTodo({
       text: 'from todo component',
       priority: Priority.c,
@@ -21,11 +23,21 @@ export class TodoComponent implements OnInit {
   }
 
   changeTodoDone(todo: Todo): void {
+    console.log('TodoComponent - changeTodoDone');
+
     todo.done = !todo.done;
     this.todoService.editTodo(todo);
   }
 
   deleteTodo(todo: Todo): void {
+    console.log('TodoComponent - deleteTodo');
+
     this.todoService.deleteTodo(todo);
+  }
+
+  editTodo(todo: Todo): void {
+    console.log('TodoComponent - editTodo');
+
+    this.todoService.editTodo(todo);
   }
 }

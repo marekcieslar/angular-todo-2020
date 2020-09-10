@@ -1,9 +1,24 @@
 <li>
-  {{todo.id}}
-  _ <input type="checkbox" name="done" id="done" [checked]="todo.done" (change)="onChangeTodoDone()">
-  _ {{todo.text}}
-  _ {{todo.priority}}
-  _ <button (click)="onDeleteTodo()">X</button>
+  <div *ngIf="!isInEditMode; then infoMode else editMode"></div>
+
+  <ng-template #infoMode>
+    {{todo.id}}
+    _ <input type="checkbox" name="done" id="done" [checked]="todo.done" (change)="onChangeTodoDone()">
+    _ {{todo.text}}
+    _ {{todo.priority}}
+    _ <button (click)="onDeleteTodo()">X</button>
+    _ <button (click)="onEnterEditMode()">Edit</button>
+  </ng-template>
+
+  <ng-template #editMode>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    {{todo.id}}
+    _ <input type="text" name="text" id="text" [formControl]="form.get('text')">
+    _ <button type="submit">Save</button>
+    _ <button type="button" (click)="onLeaveEditMode()">end Edit</button>
+  </form>
+  </ng-template>
+
   <br>
   {{todo.toString()}}
 </li>

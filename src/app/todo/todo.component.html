@@ -6,6 +6,6 @@
 
 <ul>
   <app-todo-element-list *ngFor="let t of todos$ | async" [todo]="t" (changeTodoDone)="changeTodoDone($event)"
-    (deleteTodo)="deleteTodo($event)">
+    (deleteTodo)="deleteTodo($event)" (editTodo)="editTodo($event)">
   </app-todo-element-list>
 </ul>
