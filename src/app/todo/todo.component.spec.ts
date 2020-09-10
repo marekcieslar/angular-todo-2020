@@ -1,3 +1,6 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TodoElementListComponent } from './components/todo-element-list/todo-element-list.component';
+import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { TodoService } from './services/todo.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -9,10 +12,13 @@ describe('TodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoComponent ],
-      providers: [TodoService]
-    })
-    .compileComponents();
+      declarations: [TodoComponent, TodoAddComponent, TodoElementListComponent],
+      providers: [TodoService],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

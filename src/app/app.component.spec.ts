@@ -1,3 +1,6 @@
+import { HeaderComponent } from './components/header/header.component';
+import { FoterComponent } from './components/foter/foter.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
@@ -6,10 +9,13 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        NavbarComponent,
+        FoterComponent,
+        HeaderComponent,
       ],
     }).compileComponents();
   }));
@@ -20,10 +26,4 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement;
-  //   expect(compiled.querySelector('.content span').textContent).toContain('todo-ng-observable app is running!');
-  // });
 });

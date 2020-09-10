@@ -6,19 +6,19 @@
     _ <input type="checkbox" name="done" id="done" [checked]="todo.done" (change)="onChangeTodoDone()">
     _ {{todo.text}}
     _ {{todo.priority}}
-    _ <button (click)="onDeleteTodo()">X</button>
-    _ <button (click)="onEnterEditMode()">Edit</button>
+    _ <button id="btn-delete" (click)="onDeleteTodo()">X</button>
+    _ <button id="btn-edit" (click)="onEnterEditMode()">Edit</button>
   </ng-template>
 
   <ng-template #editMode>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
     {{todo.id}}
     _ <input type="text" name="text" id="text" [formControl]="form.get('text')">
-    _ <select [formControl]="form.get('priority')">
+    _ <select id="priority" [formControl]="form.get('priority')">
       <option *ngFor="let p of priorities" [value]="p">-- {{ p }} --</option>
     </select>
-    _ <button type="submit">Save</button>
-    _ <button type="button" (click)="onLeaveEditMode()">end Edit</button>
+    _ <button id="btn-submit" type="submit">Save</button>
+    _ <button id="btn-leave-edit" type="button" (click)="onLeaveEditMode()">end Edit</button>
   </form>
   </ng-template>
 
