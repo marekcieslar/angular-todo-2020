@@ -1,6 +1,7 @@
 import { Todo } from './../../todo';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { TodoAttrs } from '../todo.interface';
 
 @Injectable()
 export class TodoService {
@@ -9,8 +10,9 @@ export class TodoService {
 
   constructor() {}
 
-  addTodo(todo: Todo): void {
-    this.todos$.next([...this.todos$.getValue(), todo]);
+  addTodo(todo: TodoAttrs): void {
+    const t = new Todo(todo);
+    this.todos$.next([...this.todos$.getValue(), t]);
   }
 
   deleteTodo(todo: Todo): void {

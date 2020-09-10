@@ -1,1 +1,9 @@
-<p>todo-element-list works!</p>
+<li>
+  {{todo.id}}
+  _ <input type="checkbox" name="done" id="done" [checked]="todo.done" (change)="onChangeTodoDone()">
+  _ {{todo.text}}
+  _ {{todo.priority}}
+  _ <button (click)="onDeleteTodo()">X</button>
+  <br>
+  {{todo.toString()}}
+</li>

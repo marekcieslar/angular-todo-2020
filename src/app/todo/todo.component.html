@@ -1,1 +1,11 @@
-<p>todo works!</p>
+<h2>add todo</h2>
+
+<app-todo-add></app-todo-add>
+
+<h2>list</h2>
+
+<ul>
+  <app-todo-element-list *ngFor="let t of todos$ | async" [todo]="t" (changeTodoDone)="changeTodoDone($event)"
+    (deleteTodo)="deleteTodo($event)">
+  </app-todo-element-list>
+</ul>
