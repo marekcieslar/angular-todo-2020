@@ -1,1 +1,10 @@
-<p>todo-add works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input type="text" name="text" id="text" [formControl]="form.get('text')">
+
+  <select [formControl]="form.get('priority')">
+    <option>-- choose --</option>
+    <option *ngFor="let p of priorities" [value]="p">--- {{ p }} ---</option>
+  </select>
+
+  <button type="submit">Add Todo</button>
+</form>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from 'src/app/todo';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Priority } from '../../Priority.enum';
 
 @Component({
   selector: 'app-todo-element-list',
@@ -17,6 +18,7 @@ export class TodoElementListComponent implements OnInit {
   isInEditMode = false;
 
   form: FormGroup;
+  priorities = Object.values(Priority);
 
   constructor() { }
 
@@ -52,6 +54,8 @@ export class TodoElementListComponent implements OnInit {
 
   onSubmit(): void {
     console.log('TodoElementListComponent - onSubmit');
+
+    this.isInEditMode = false;
 
     this.todo.text = this.form.value.text;
     this.todo.priority = this.form.value.priority;
