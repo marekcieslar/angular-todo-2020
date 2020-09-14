@@ -1,0 +1,20 @@
+@import 'src/assets/styles/styles-colors.scss';
+
+h2 {
+  text-align: center;
+}
+
+.mat-list-base {
+
+  .list-element {
+
+    width: 250px;
+
+    &--active {
+      background-color: $primary;
+      color: $text-on-primary;
+    }
+
+  }
+}
+

@@ -1,3 +1,4 @@
+import { AddMaterialModule } from '../add-material/add-material.module';
 import { TodoService } from './services/todo.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TodoRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AddMaterialModule,
   ],
   providers: [
     TodoService

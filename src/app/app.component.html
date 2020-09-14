@@ -1,7 +1,21 @@
-<app-navbar></app-navbar>
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="over">
+    <app-navbar></app-navbar>
+  </mat-drawer>
+  <mat-drawer-content>
 
-<app-header></app-header>
+    <app-tooltip (toggleSidenav)="drawer.toggle()"></app-tooltip>
 
-<router-outlet></router-outlet>
+    <div class="content">
+      <app-header></app-header>
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+    </div>
 
-<app-foter></app-foter>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+
