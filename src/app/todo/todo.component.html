@@ -4,8 +4,4 @@
 
 <h2>list</h2>
 
-<ul>
-  <app-todo-element-list *ngFor="let t of todos$ | async" [todo]="t" (changeTodoDone)="changeTodoDone($event)"
-    (deleteTodo)="deleteTodo($event)" (editTodo)="editTodo($event)">
-  </app-todo-element-list>
-</ul>
+<app-todo-list [todo$]="todo$" (updateTodo)="editTodo($event)" (deleteTodo)="deleteTodo($event)"></app-todo-list>

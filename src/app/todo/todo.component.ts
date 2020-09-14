@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent implements OnInit {
-  todos$ = this.todoService.todos$.pipe(
+  todo$ = this.todoService.todos$.pipe(
     map(data => data.sort((a, b) => {
       if (a.priority < b.priority) {
         return -1;
