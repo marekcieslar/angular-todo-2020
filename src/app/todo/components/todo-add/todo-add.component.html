@@ -1,10 +1,44 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <input type="text" name="text" id="text" [formControl]="form.get('text')">
+<form [formGroup]="form" #formAddTodo="ngForm" (ngSubmit)="onSubmit()">
+  <div class="group">
+    <mat-form-field appearance="fill">
+      <mat-label>Todo:</mat-label>
+      <input type="text" matInput formControlName="text" placeholder="Todo:" />
+      <!-- <button
+        mat-button
+        *ngIf="form.get('text').value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="form.patchValue({ text: '' })"
+      >
+        <mat-icon>close</mat-icon>
+      </button> -->
+      <mat-error *ngIf="form.get('text').hasError('required')">
+        Oh no - an error!!!
+      </mat-error>
+      <mat-error *ngIf="form.get('text').hasError('minlength')">
+        Oh no - an error - min length is
+        {{
+          form.get("text").validator(form.get("text")).minlength.requiredLength
+        }}
+        but get:
+        {{
+          form.get("text").validator(form.get("text")).minlength.actualLength
+        }}
+      </mat-error>
+    </mat-form-field>
 
-  <select [formControl]="form.get('priority')">
-    <option>-- choose --</option>
-    <option *ngFor="let p of priorities" [value]="p">--- {{ p }} ---</option>
-  </select>
+    <mat-form-field appearance="fill">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority">
+        <mat-option *ngFor="let p of priorities" [value]="p">
+          {{ p }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 
-  <button type="submit">Add Todo</button>
+  <button mat-raised-button type="submit" (keypress)="keyPress($event)">
+    Add Todo
+  </button>
 </form>
