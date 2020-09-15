@@ -10,6 +10,10 @@ export class TodoService {
   id = 1;
 
   constructor() {
+    const t0 = this.addTodo({
+      text: 'angular material',
+      priority: Priority.a
+    });
     const t1 = this.addTodo({
       text: 'logger',
       priority: Priority.b
@@ -27,7 +31,9 @@ export class TodoService {
       priority: Priority.c
     });
 
+    t0.done = true;
     t2.done = true;
+    t4.done = true;
   }
 
   addTodo(todo: TodoAttrs): Todo {
