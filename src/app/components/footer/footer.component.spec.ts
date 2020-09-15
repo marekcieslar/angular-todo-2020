@@ -1,3 +1,5 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddMaterialModule } from './../../add-material/add-material.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FooterComponent } from './footer.component';
@@ -8,9 +10,9 @@ describe('FoterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
-    })
-    .compileComponents();
+      declarations: [FooterComponent],
+      imports: [AddMaterialModule, FormsModule, ReactiveFormsModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

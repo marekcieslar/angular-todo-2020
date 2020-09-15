@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddMaterialModule } from './../../../add-material/add-material.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoAddComponent } from './todo-add.component';
@@ -9,10 +11,14 @@ describe('TodoAddComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoAddComponent ],
-      imports: [FormsModule, ReactiveFormsModule],
-    })
-    .compileComponents();
+      declarations: [TodoAddComponent],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        AddMaterialModule,
+        BrowserAnimationsModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -7,7 +7,6 @@ import { TodoAttrs } from '../todo.interface';
 @Injectable()
 export class TodoService {
   todos$ = new BehaviorSubject<Todo[]>([]);
-  id = 1;
 
   constructor() {
     // const t0 = this.addTodo({

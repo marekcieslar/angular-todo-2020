@@ -1,3 +1,4 @@
+import { Todo } from 'src/app/todo';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddMaterialModule } from './../add-material/add-material.module';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
@@ -7,6 +8,17 @@ import { TodoService } from './services/todo.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoComponent } from './todo.component';
+import { BehaviorSubject } from 'rxjs';
+
+class TodoMockService implements Partial<TodoService> {
+  todos$ = new BehaviorSubject<Todo[]>([]);
+
+  addTodo(): Todo {
+    return null;
+  }
+  deleteTodo(): void {}
+  editTodo(): void {}
+}
 
 describe('TodoComponent', () => {
   let component: TodoComponent;
@@ -15,13 +27,13 @@ describe('TodoComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TodoComponent, TodoAddComponent, TodoListComponent],
-      providers: [TodoService],
+      providers: [{ provide: TodoService, useClass: TodoMockService }],
       imports: [
         FormsModule,
         ReactiveFormsModule,
         AddMaterialModule,
         BrowserAnimationsModule,
-      ]
+      ],
     }).compileComponents();
   }));
 

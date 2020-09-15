@@ -20,7 +20,6 @@ export class TodoComponent {
         } else {
           return 1;
         }
-
       } else if (a.done < b.done) {
         return -1;
       } else {
