@@ -9,12 +9,9 @@ describe('TooltipComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TooltipComponent ],
-      imports: [
-        AddMaterialModule,
-      ]
-    })
-    .compileComponents();
+      declarations: [TooltipComponent],
+      imports: [AddMaterialModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
