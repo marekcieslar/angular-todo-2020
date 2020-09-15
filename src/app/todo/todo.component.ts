@@ -1,8 +1,7 @@
 import { TodoAttrs } from './todo.interface';
 import { Todo } from './../todo';
 import { TodoService } from './services/todo.service';
-import { Component, OnInit } from '@angular/core';
-import { Priority } from './Priority.enum';
+import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -10,13 +9,19 @@ import { map } from 'rxjs/operators';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
 })
-export class TodoComponent implements OnInit {
+export class TodoComponent {
   todo$ = this.todoService.todos$.pipe(
     map(data => data.sort((a, b) => {
-      if (a.priority < b.priority) {
+      if (a.done === b.done) {
+        if (a.priority === b.priority) {
+          return 0;
+        } else if (a.priority < b.priority) {
+          return -1;
+        } else {
+          return 1;
+        }
+      } else if (a.done < b.done) {
         return -1;
-      } else if (a.priority === b.priority) {
-        return 0;
       } else {
         return 1;
       }
@@ -24,15 +29,6 @@ export class TodoComponent implements OnInit {
   );
 
   constructor(private readonly todoService: TodoService) {}
-
-  ngOnInit(): void {
-    console.log('TodoComponent - on init');
-
-    this.todoService.addTodo({
-      text: 'from todo component',
-      priority: Priority.c,
-    });
-  }
 
   addTodo(todo: TodoAttrs): void {
     this.todoService.addTodo(todo);
