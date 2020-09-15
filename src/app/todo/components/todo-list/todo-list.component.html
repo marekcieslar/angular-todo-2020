@@ -59,7 +59,7 @@
         <ng-template #priorityThenBlock>
           <mat-form-field appearance="fill">
             <mat-label>Priority</mat-label>
-            <mat-select formControlName="priority">
+            <mat-select formControlName="priority" ngDefaultControl>
               <mat-option *ngFor="let p of priorities" [value]="p">
                 {{ p }}
               </mat-option>

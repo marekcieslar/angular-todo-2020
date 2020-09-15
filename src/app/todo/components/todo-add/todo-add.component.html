@@ -30,7 +30,8 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Priority</mat-label>
-      <mat-select formControlName="priority">
+      <!-- ngDefaultControl for test working properly -->
+      <mat-select formControlName="priority" name="priority" ngDefaultControl>
         <mat-option *ngFor="let p of priorities" [value]="p">
           {{ p }}
         </mat-option>
@@ -38,7 +39,7 @@
     </mat-form-field>
   </div>
 
-  <button mat-raised-button type="submit" (keypress)="keyPress($event)">
+  <button mat-raised-button type="submit">
     Add Todo
   </button>
 </form>

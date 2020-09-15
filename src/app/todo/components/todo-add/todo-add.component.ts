@@ -27,13 +27,9 @@ export class TodoAddComponent {
     });
   }
 
-  keyPress($event: KeyboardEvent): void {
-    // already covered by angular material
-    // if ($event.key === 'Enter') {
-    //   this.onSubmit();
-    // }
-  }
-
+  /**
+   * submit form and add new todo/ or do nothing
+   */
   onSubmit(): void {
     if (this.form.valid) {
       this.addTodo.emit(this.form.value);

@@ -1,8 +1,8 @@
+import { Priority } from './../Priority.enum';
 import { Todo } from './../../todo';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { TodoAttrs } from '../todo.interface';
-import { Priority } from '../Priority.enum';
 
 @Injectable()
 export class TodoService {
@@ -30,12 +30,20 @@ export class TodoService {
       text: 'footer visuals',
       priority: Priority.c
     });
+    const t5 = this.addTodo({
+      text: 'add snackbar',
+      priority: Priority.b
+    });
 
     t0.done = true;
     t2.done = true;
     t4.done = true;
   }
 
+  /**
+   * add new todo to list
+   * @param todo data for new todo
+   */
   addTodo(todo: TodoAttrs): Todo {
     console.log('TodoService - add');
 
@@ -44,6 +52,10 @@ export class TodoService {
     return t;
   }
 
+  /**
+   * delete single todo from list
+   * @param todo todo to delete
+   */
   deleteTodo(todo: Todo): void {
     console.log('TodoService - delete');
 
@@ -53,6 +65,10 @@ export class TodoService {
     this.todos$.next([...todos]);
   }
 
+  /**
+   * edit single todo in list
+   * @param todo todo with new data
+   */
   editTodo(todo: Todo): void {
     console.log('TodoService - edit');
 
