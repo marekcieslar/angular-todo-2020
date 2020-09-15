@@ -48,7 +48,7 @@ export class TodoComponent {
     this.todoService.deleteTodo(todo);
   }
 
-  editTodo(todo: Todo): void {
+  editTodo(todo: TodoAttrs): void {
     console.log('TodoComponent - editTodo');
 
     this.todoService.editTodo(todo);

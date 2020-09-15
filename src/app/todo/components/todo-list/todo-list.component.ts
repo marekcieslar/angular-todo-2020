@@ -1,3 +1,4 @@
+import { TodoAttrs } from './../../todo.interface';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -12,7 +13,7 @@ import { Priority } from '../../Priority.enum';
 export class TodoListComponent implements OnInit {
   @Input() todo$: Observable<Todo[]>;
 
-  @Output() updateTodo = new EventEmitter<Todo>();
+  @Output() updateTodo = new EventEmitter<TodoAttrs>();
   @Output() deleteTodo = new EventEmitter<Todo>();
 
   priorities = Object.values(Priority);
@@ -53,17 +54,21 @@ export class TodoListComponent implements OnInit {
   }
 
   onUpdateTodo(todo: Todo): void {
-    todo.text = this.formEditTodo.get('text').value;
-    todo.priority = this.formEditTodo.get('priority').value;
+    const toChange = {...todo};
 
-    this.updateTodo.emit(todo);
+    toChange.text = this.formEditTodo.get('text').value;
+    toChange.priority = this.formEditTodo.get('priority').value;
+
+    this.updateTodo.emit(toChange);
 
     this.onExitEditMode();
   }
 
   onChangeTodoDone(todo: Todo): void {
-    todo.done = !todo.done;
-    this.updateTodo.emit(todo);
+    const toChange = {...todo};
+    toChange.done = !toChange.done;
+    console.log(toChange === todo);
+    this.updateTodo.emit(toChange);
   }
 
   onDeleteTodo(todo: Todo): void {

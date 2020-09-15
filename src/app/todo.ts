@@ -7,12 +7,13 @@ export class Todo implements TodoAttrs {
   id: number;
   text: string;
   priority: Priority;
-  done = false;
+  done: boolean;
 
   constructor(attrs: TodoAttrs) {
-    this.id = Todo.ID++;
+    this.id = attrs.id || Todo.ID++;
     this.text = attrs.text;
     this.priority = attrs.priority;
+    this.done = attrs.done || false;
   }
 
   toString(): string {

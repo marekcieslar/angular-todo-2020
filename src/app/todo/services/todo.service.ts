@@ -10,34 +10,37 @@ export class TodoService {
   id = 1;
 
   constructor() {
-    const t0 = this.addTodo({
-      text: 'angular material',
-      priority: Priority.a
-    });
-    const t1 = this.addTodo({
-      text: 'logger',
-      priority: Priority.b
-    });
-    const t2 = this.addTodo({
-      text: 'sort by done and priority',
-      priority: Priority.a
-    });
-    const t3 = this.addTodo({
-      text: 'update tests',
-      priority: Priority.a
-    });
-    const t4 = this.addTodo({
-      text: 'footer visuals',
-      priority: Priority.c
-    });
-    const t5 = this.addTodo({
-      text: 'add snackbar',
-      priority: Priority.b
-    });
-
-    t0.done = true;
-    t2.done = true;
-    t4.done = true;
+    // const t0 = this.addTodo({
+    //   text: 'angular material',
+    //   priority: Priority.a
+    // });
+    // const t1 = this.addTodo({
+    //   text: 'logger',
+    //   priority: Priority.b
+    // });
+    // const t2 = this.addTodo({
+    //   text: 'sort by done and priority',
+    //   priority: Priority.a
+    // });
+    // const t3 = this.addTodo({
+    //   text: 'update tests',
+    //   priority: Priority.a
+    // });
+    // const t4 = this.addTodo({
+    //   text: 'footer visuals',
+    //   priority: Priority.c
+    // });
+    // const t5 = this.addTodo({
+    //   text: 'add snackbar',
+    //   priority: Priority.b
+    // });
+    // const t6 = this.addTodo({
+    //   text: 'change checkbox to directive',
+    //   priority: Priority.a
+    // });
+    // t0.done = true;
+    // t2.done = true;
+    // t4.done = true;
   }
 
   /**
@@ -69,12 +72,11 @@ export class TodoService {
    * edit single todo in list
    * @param todo todo with new data
    */
-  editTodo(todo: Todo): void {
+  editTodo(todo: TodoAttrs): void {
     console.log('TodoService - edit');
-
     const todos = this.todos$.getValue();
     const index = todos.findIndex((t) => t.id === todo.id);
-    todos[index] = todo;
+    todos[index] = new Todo(todo);
     this.todos$.next([...todos]);
   }
 }
