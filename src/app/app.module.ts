@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { AddMaterialModule } from './add-material/add-material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,15 +17,16 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
-    TooltipComponent
+    TooltipComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AddMaterialModule,
+    SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { AddMaterialModule } from '../add-material/add-material.module';
 import { TodoService } from './services/todo.service';
 import { NgModule } from '@angular/core';
@@ -9,7 +10,6 @@ import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 
-
 @NgModule({
   declarations: [TodoComponent, TodoAddComponent, TodoListComponent],
   imports: [
@@ -18,9 +18,8 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     FormsModule,
     ReactiveFormsModule,
     AddMaterialModule,
+    SharedModule,
   ],
-  providers: [
-    TodoService
-  ]
+  providers: [TodoService],
 })
-export class TodoModule { }
+export class TodoModule {}

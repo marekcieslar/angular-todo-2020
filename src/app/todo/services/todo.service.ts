@@ -45,7 +45,6 @@ export class TodoService {
       text: 'test - todo service',
       priority: Priority.a,
     });
-
     t0.done = true;
     t2.done = true;
     t4.done = true;
