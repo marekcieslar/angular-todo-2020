@@ -5,17 +5,19 @@ import { Directive, HostBinding, Input, OnInit } from '@angular/core';
 })
 export class DoneDirective implements OnInit {
   @HostBinding('style.text-decoration') textDecoration = '';
-  @HostBinding('style.color') color: string;
+  @HostBinding('innerText') innerText: string;
 
   @Input() isDone: boolean;
+  @Input() text: string;
 
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.isDone);
-    // if (this.isDone) {
-    this.textDecoration = 'line-through';
-    this.color = 'pink';
-    // }
+    if (this.isDone) {
+      this.textDecoration = 'line-through';
+      this.innerText = `:) ${this.text} (:`;
+    } else {
+      this.innerText = `${this.text}`;
+    }
   }
 }

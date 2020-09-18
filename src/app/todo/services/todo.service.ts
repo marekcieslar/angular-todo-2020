@@ -9,47 +9,53 @@ export class TodoService {
   todos$ = new BehaviorSubject<Todo[]>([]);
 
   constructor() {
-    const t0 = this.addTodo({
-      text: 'angular material',
-      priority: Priority.a,
-    });
-    const t1 = this.addTodo({
-      text: 'logger',
-      priority: Priority.b,
-    });
-    const t2 = this.addTodo({
-      text: 'sort by done and priority',
-      priority: Priority.a,
-    });
-    const t3 = this.addTodo({
-      text: 'update tests',
-      priority: Priority.a,
-    });
-    const t4 = this.addTodo({
-      text: 'footer visuals',
-      priority: Priority.c,
-    });
-    const t5 = this.addTodo({
-      text: 'add snackbar',
-      priority: Priority.b,
-    });
-    const t6 = this.addTodo({
-      text: 'change checkbox to directive',
-      priority: Priority.a,
-    });
-    const t7 = this.addTodo({
-      text: 'test - no red in console',
-      priority: Priority.a,
-    });
-    const t8 = this.addTodo({
-      text: 'test - todo service',
-      priority: Priority.a,
-    });
-    t0.done = true;
-    t2.done = true;
-    t4.done = true;
-    t7.done = true;
-    t8.done = true;
+    // const t0 = this.addTodo({
+    //   text: 'angular material',
+    //   priority: Priority.a,
+    // });
+    // const t1 = this.addTodo({
+    //   text: 'logger',
+    //   priority: Priority.b,
+    // });
+    // const t2 = this.addTodo({
+    //   text: 'sort by done and priority',
+    //   priority: Priority.a,
+    // });
+    // const t3 = this.addTodo({
+    //   text: 'update tests',
+    //   priority: Priority.a,
+    // });
+    // const t4 = this.addTodo({
+    //   text: 'footer visuals',
+    //   priority: Priority.c,
+    // });
+    // const t5 = this.addTodo({
+    //   text: 'add snackbar',
+    //   priority: Priority.b,
+    // });
+    // const t6 = this.addTodo({
+    //   text: 'change checkbox to directive',
+    //   priority: Priority.a,
+    // });
+    // const t7 = this.addTodo({
+    //   text: 'test - no red in console',
+    //   priority: Priority.a,
+    // });
+    // const t8 = this.addTodo({
+    //   text: 'test - todo service',
+    //   priority: Priority.a,
+    // });
+    // const t9 = this.addTodo({
+    //   text: 'directive tests',
+    //   priority: Priority.a,
+    // });
+
+    // t0.done = true;
+    // t2.done = true;
+    // t4.done = true;
+    // t7.done = true;
+    // t8.done = true;
+    // t9.done = true;
   }
 
   /**
