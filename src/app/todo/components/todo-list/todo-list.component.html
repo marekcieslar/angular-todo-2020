@@ -52,7 +52,11 @@
             </mat-error>
           </mat-form-field>
         </ng-template>
-        <ng-template #textElseBlock> {{ todo.text }} </ng-template>
+        <ng-template #textElseBlock>
+          <p appDone [isDone]="todo.done">
+            {{ todo.text }}
+          </p>
+        </ng-template>
       </td>
     </ng-container>
 
