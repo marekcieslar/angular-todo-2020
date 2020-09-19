@@ -1,6 +1,11 @@
-<h2>Menu</h2>
+<h2>{{ title }}</h2>
 
 <mat-nav-list>
-  <a class="list-element" mat-list-item routerLink="/about" routerLinkActive="list-element--active">About</a>
-  <a class="list-element" mat-list-item routerLink="/todo" routerLinkActive="list-element--active">Todo</a>
+  <a
+    *ngFor="let l of links"
+    class="list-element"
+    mat-list-item
+    [routerLink]="l.path"
+    routerLinkActive="list-element--active"
+  >{{ l.text }}</a>
 </mat-nav-list>

@@ -49,13 +49,35 @@ export class TodoService {
     //   text: 'directive tests',
     //   priority: Priority.a,
     // });
+    // const t10 = this.addTodo({
+    //   text: 'test - header, footer, nav',
+    //   priority: Priority.a,
+    // });
+    // const t11 = this.addTodo({
+    //   text: 'test - todo list',
+    //   priority: Priority.a,
+    // });
+    // const t12 = this.addTodo({
+    //   text: 'test - todo add',
+    //   priority: Priority.a,
+    // });
+    // const t13 = this.addTodo({
+    //   text: 'doing now section',
+    //   priority: Priority.b,
+    // });
+    // const t14 = this.addTodo({
+    //   text: 'test - doing now',
+    //   priority: Priority.b,
+    // });
 
     // t0.done = true;
     // t2.done = true;
     // t4.done = true;
+    // t6.done = true;
     // t7.done = true;
     // t8.done = true;
     // t9.done = true;
+    // t10.done = true;
   }
 
   /**

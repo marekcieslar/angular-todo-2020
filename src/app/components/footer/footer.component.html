@@ -1,6 +1,9 @@
 <footer>
   <mat-toolbar color="primary">
-    <span>todo footer :) created by <a href="http://marekcieslar.pl" target="_blank" rel="noopener noreferrer">Marek</a></span>
+    <span
+      >{{ prefixText }}<a [href]="url" target="_blank" rel="noopener noreferrer">{{
+        urlText
+      }}</a>{{ postfixText }}
+    </span>
   </mat-toolbar>
 </footer>
-
