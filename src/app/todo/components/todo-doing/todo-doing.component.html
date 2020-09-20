@@ -1,0 +1,12 @@
+<h2>{{ title }}</h2>
+
+<ng-container *ngIf="activeTodo && !activeTodo.done; then thenTemplate; else elseTemplate"></ng-container>
+<ng-template #thenTemplate>
+  <span>{{ activeTodo }}</span>
+  <button mat-raised-button (click)="onCleanActiveTodo()">
+    <mat-icon>close</mat-icon>
+  </button>
+</ng-template>
+<ng-template #elseTemplate>
+  <p>free time?? :)</p>
+</ng-template>

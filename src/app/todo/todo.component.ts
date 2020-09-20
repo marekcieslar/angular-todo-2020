@@ -11,22 +11,26 @@ import { map } from 'rxjs/operators';
 })
 export class TodoComponent {
   todo$ = this.todoService.todos$.pipe(
-    map(data => data.sort((a, b) => {
-      if (a.done === b.done) {
-        if (a.priority === b.priority) {
-          return 0;
-        } else if (a.priority < b.priority) {
+    map((data) =>
+      data.sort((a, b) => {
+        if (a.done === b.done) {
+          if (a.priority === b.priority) {
+            return 0;
+          } else if (a.priority < b.priority) {
+            return -1;
+          } else {
+            return 1;
+          }
+        } else if (a.done < b.done) {
           return -1;
         } else {
           return 1;
         }
-      } else if (a.done < b.done) {
-        return -1;
-      } else {
-        return 1;
-      }
-    }))
+      })
+    )
   );
+
+  activeTodo: Todo = null;
 
   constructor(private readonly todoService: TodoService) {}
 
@@ -34,22 +38,33 @@ export class TodoComponent {
     this.todoService.addTodo(todo);
   }
 
-  changeTodoDone(todo: Todo): void {
-    console.log('TodoComponent - changeTodoDone');
-
-    todo.done = !todo.done;
-    this.todoService.editTodo(todo);
-  }
-
   deleteTodo(todo: Todo): void {
     console.log('TodoComponent - deleteTodo');
 
     this.todoService.deleteTodo(todo);
+    if (this.activeTodo.id === todo.id) {
+      this.activeTodo = null;
+    }
   }
 
   editTodo(todo: TodoAttrs): void {
     console.log('TodoComponent - editTodo');
 
     this.todoService.editTodo(todo);
+
+    // edit or clean active todo
+    // if change text or priority than update todo
+    // if change done than clear active todo
+    if (this.activeTodo?.id === todo.id) {
+      if (this.activeTodo.done !== todo.done) {
+        this.activeTodo = null;
+      } else {
+        this.activeTodo = new Todo(todo);
+      }
+    }
+  }
+
+  onActiveTodo(todo: Todo): void {
+    this.activeTodo = todo;
   }
 }

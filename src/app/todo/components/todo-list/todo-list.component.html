@@ -93,7 +93,6 @@
         <ng-template #editThenBlock>
           <button
             mat-raised-button
-            color="primary"
             (click)="onUpdateTodo(todo)"
           >
             <mat-icon>save</mat-icon>
@@ -105,6 +104,15 @@
         </ng-template>
 
         <ng-template #editElseBlock>
+          <button
+          *ngIf="!todo.done"
+          mat-raised-button
+          color="primary"
+          (click)="onSetActiveTodo(todo)"
+        >
+          <mat-icon>handyman</mat-icon>
+        </button>
+
           <button
             mat-raised-button
             color="accent"

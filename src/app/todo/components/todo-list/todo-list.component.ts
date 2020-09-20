@@ -15,6 +15,7 @@ export class TodoListComponent implements OnInit {
 
   @Output() updateTodo = new EventEmitter<TodoAttrs>();
   @Output() deleteTodo = new EventEmitter<Todo>();
+  @Output() activeTodo = new EventEmitter<Todo>();
 
   priorities = Object.values(Priority);
 
@@ -67,11 +68,14 @@ export class TodoListComponent implements OnInit {
   onChangeTodoDone(todo: Todo): void {
     const toChange = {...todo};
     toChange.done = !toChange.done;
-    console.log(toChange === todo);
     this.updateTodo.emit(toChange);
   }
 
   onDeleteTodo(todo: Todo): void {
     this.deleteTodo.emit(todo);
+  }
+
+  onSetActiveTodo(todo: Todo): void {
+    this.activeTodo.emit(todo);
   }
 }
