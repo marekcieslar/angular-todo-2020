@@ -30,6 +30,12 @@ export class TodoComponent {
     )
   );
 
+  titles = {
+    active: 'Active TODO',
+    add: 'Add new TODO',
+    list: 'List of TODO',
+  };
+
   activeTodo: Todo = null;
 
   constructor(private readonly todoService: TodoService) {}

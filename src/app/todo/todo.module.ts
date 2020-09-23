@@ -9,14 +9,14 @@ import { TodoComponent } from './todo.component';
 import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { TodoDoingComponent } from './components/todo-doing/todo-doing.component';
+import { TodoActiveComponent } from './components/todo-doing/todo-active.component';
 
 @NgModule({
   declarations: [
     TodoComponent,
     TodoAddComponent,
     TodoListComponent,
-    TodoDoingComponent,
+    TodoActiveComponent,
   ],
   imports: [
     CommonModule,

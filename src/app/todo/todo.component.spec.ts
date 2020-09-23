@@ -1,3 +1,4 @@
+import { TodoActiveComponent } from './components/todo-doing/todo-active.component';
 import { Todo } from 'src/app/todo';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddMaterialModule } from './../add-material/add-material.module';
@@ -26,7 +27,12 @@ describe('TodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TodoComponent, TodoAddComponent, TodoListComponent],
+      declarations: [
+        TodoComponent,
+        TodoAddComponent,
+        TodoListComponent,
+        TodoActiveComponent,
+      ],
       providers: [{ provide: TodoService, useClass: TodoMockService }],
       imports: [
         FormsModule,

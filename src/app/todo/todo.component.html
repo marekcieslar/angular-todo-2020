@@ -2,8 +2,18 @@
 
 <app-todo-add (addTodo)="addTodo($event)"></app-todo-add>
 
-<app-todo-doing (cleanActiveTodo)="onActiveTodo(null)" [activeTodo]="activeTodo"></app-todo-doing>
+<app-todo-active
+  [title]="titles.active"
+  (cleanActiveTodo)="onActiveTodo($event)"
+  [activeTodo]="activeTodo"
+>
+</app-todo-active>
 
 <h2>list</h2>
 
-<app-todo-list [todo$]="todo$" (activeTodo)="onActiveTodo($event)"  (updateTodo)="editTodo($event)" (deleteTodo)="deleteTodo($event)"></app-todo-list>
+<app-todo-list
+  [todo$]="todo$"
+  (activeTodo)="onActiveTodo($event)"
+  (updateTodo)="editTodo($event)"
+  (deleteTodo)="deleteTodo($event)"
+></app-todo-list>

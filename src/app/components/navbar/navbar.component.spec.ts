@@ -15,6 +15,10 @@ describe('NavbarComponent', () => {
       path: '/about',
       text: 'About',
     },
+    {
+      path: '/todo',
+      text: 'Todo'
+    }
   ];
 
   beforeEach(async(() => {
